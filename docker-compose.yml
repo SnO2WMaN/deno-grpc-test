@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  postfix:
+    image: mailhog/mailhog:latest
+    ports:
+      - target: 8025
+        published: 8025
+      - target: 1025
+        published: 1025
