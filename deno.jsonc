@@ -1,10 +1,12 @@
 {
   "tasks": {
-    "start": "deno run -A --import-map=./import_map.json ./mod.ts",
-    "test": "deno test --import-map=./import_map.json",
-    "lint": "deno lint",
-    "lock":"deno cache --import-map=./import_map.json --lock lock.json --lock-write ./mod.ts"
+    "generate": "deno run --allow-read https://deno.land/x/grpc_basic@0.4.6/gen/dts.ts ./greeter.proto > ./greeter.d.ts",
+    "dev:server": "deno run --watch -A ./server.ts",
+    "dev:client": "deno run --watch -A ./client.ts",
+    "test": "deno test",
+    "lint": "deno lint"
   },
+  "importMap": "./import_map.json",
   "fmt": {
     "options": {
       "lineWidth": 120,
@@ -14,7 +16,7 @@
     },
     "files": {
       "exclude": [
-        "./lock.json"
+        "./greeter.d.ts"
       ]
     }
   }

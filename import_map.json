@@ -1,4 +1,6 @@
 {
   "imports": {
+    "grpc/": "https://deno.land/x/grpc_basic@0.4.6/",
+    "std/": "https://deno.land/std@0.159.0/"
   }
 }

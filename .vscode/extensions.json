@@ -3,6 +3,7 @@
     "jnoortheen.nix-ide",
     "arrterian.nix-env-selector",
     "jkillian.custom-local-formatters",
-    "denoland.vscode-deno"
+    "denoland.vscode-deno",
+    "zxh404.vscode-proto3"
   ]
 }
