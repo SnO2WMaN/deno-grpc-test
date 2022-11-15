@@ -1,3 +1,6 @@
 # Nix
 .direnv
 result
+
+# auto generated
+authenticator.d.ts

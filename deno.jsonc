@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "generate": "deno run --allow-read https://deno.land/x/grpc_basic@0.4.6/gen/dts.ts ./greeter.proto > ./greeter.d.ts",
+    "generate": "deno run --allow-read https://deno.land/x/grpc_basic@0.4.6/gen/dts.ts ./authenticator.proto > ./authenticator.d.ts",
     "dev:server": "deno run --watch -A ./server.ts",
     "dev:client": "deno run --watch -A ./client.ts",
     "test": "deno test",

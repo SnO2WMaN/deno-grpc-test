@@ -29,7 +29,7 @@
             treefmt
             deno
           ];
-          # devshell.startup.deno_lock.text = "deno task lock";
+          devshell.startup.deno_task_generate.text = "deno task generate";
         };
       }
     );

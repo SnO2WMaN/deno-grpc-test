@@ -1,22 +1,21 @@
-import { Greeter } from "./greeter.d.ts";
 import { getClient } from "grpc/client.ts";
+import { Authenticator } from "./authenticator.d.ts";
 
-const protoPath = new URL("./greeter.proto", import.meta.url);
+const protoPath = new URL("./authenticator.proto", import.meta.url);
 const protoFile = await Deno.readTextFile(protoPath);
 
-const client = getClient<Greeter>({
+const client = getClient<Authenticator>({
   port: 50051,
   root: protoFile,
-  serviceName: "Greeter",
+  serviceName: "Authenticator",
 });
 
-/* unary calls */
-console.log(await client.SayHello({ name: "unary #1" }));
-console.log(await client.SayHello({ name: "unary #2" }));
-
-/* server stream */
-for await (const reply of client.ShoutHello({ name: "streamed" })) {
-  console.log(reply);
+const { accessToken } = await client.Signin({ name: "sno2wman", password: "password" });
+if (accessToken) {
+  const validate = await client.Validate({ accessToken: accessToken });
+  console.log(validate.userId);
 }
+
+/* unary calls */
 
 client.close();
